@@ -13,29 +13,34 @@ const questions = () => {
             },
             {
                 type: 'input',
-                name: 'descrtiption',
+                name: 'description',
                 message: 'Add a desctiption of your project:'
+            },
+            {
+                type: 'input',
+                name: 'table',
+                message: 'Add a table of contents?(option)'
+
             }
         ])
 };
-
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
 
-    const markdown = generateMarkdown(data);
+    const readmePageData = generateMarkdown(fileName, data);
 
-
-    fs.writeFile('./README.md', markdown, err => {
+    fs.writeFile('README.md', readmePageData, err => {
         if (err) throw new Error(err);
 
         console.log('Readme complete! Check out README.md to see the output!');
     });
-}
 
+}
 
 // TODO: Create a function to initialize app
 function init() {
-    questions();
+    questions()
+        .then(writeToFile);
 }
 
 // Function call to initialize app
