@@ -2,6 +2,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
+const { title } = require('process');
+const Choices = require('inquirer/lib/objects/choices');
 // TODO: Create an array of questions for user input
 const questions = () => {
     return inquirer
@@ -9,12 +11,34 @@ const questions = () => {
             {
                 type: 'input',
                 name: 'Title',
-                message: 'Enter your project title: (required)'
+                message: 'Enter your project title: (required)',
+                validate: titleInput => {
+                    if (titleInput) {
+                        return true;
+                    } else {
+                        console.log('You must enter a title for your project!');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'input',
                 name: 'Description',
-                message: 'Add a desctiption of your project:'
+                message: 'Add a desctiption of your project:',
+                validate: descriptionInput => {
+                    if (descriptionInput) {
+                        return true;
+                    } else {
+                        console.log('You must add description of the project!')
+                        return false;
+                    }
+                }
+            },
+            {
+                type: 'checkbox',
+                name: 'Languages',
+                message: 'What languages were used to make this project?',
+                choices: ['JavaScript', 'Python', 'Java', 'C++', 'PHP', 'SQL', 'Other...']
             },
             {
                 type: 'input',
