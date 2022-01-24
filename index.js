@@ -8,20 +8,37 @@ const questions = () => {
         .prompt([
             {
                 type: 'input',
-                name: 'title',
+                name: 'Title',
                 message: 'Enter your project title: (required)'
             },
             {
                 type: 'input',
-                name: 'description',
+                name: 'Description',
                 message: 'Add a desctiption of your project:'
             },
             {
                 type: 'input',
-                name: 'table',
+                name: 'Table',
                 message: 'Add a table of contents?(option)'
 
+            },
+            {
+                type: 'input',
+                name: 'Installation',
+                message: 'What required installs are needed to run your app as well as its dependencies?'
+            },
+            {
+                type: 'input',
+                name: 'Opperate',
+                message: 'Provide instructions on how to use/opperate your project: '
+            },
+            {
+                type: 'input',
+                name: 'Contributors',
+                message: 'Give a list of people who contributed to the project: '
             }
+
+
         ])
 };
 // TODO: Create a function to write README file
