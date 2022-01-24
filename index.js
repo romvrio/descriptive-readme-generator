@@ -43,8 +43,15 @@ const questions = () => {
             {
                 type: 'input',
                 name: 'Table',
-                message: 'Add a table of contents?(option)'
-
+                message: 'Add a table of contents?(optional)',
+                validate: tableConfirm => {
+                    if (tableConfirm) {
+                        return true;
+                    } else {
+                        console.log('are you sure you dont want to add a table of contents?')
+                        return false;
+                    }
+                }
             },
             {
                 type: 'input',
@@ -59,7 +66,7 @@ const questions = () => {
             {
                 type: 'input',
                 name: 'Contributors',
-                message: 'Give a list of people who contributed to the project: '
+                message: 'Give a list of GitHub usernames who contributed to the project: '
             }
 
 

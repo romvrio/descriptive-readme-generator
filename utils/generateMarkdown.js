@@ -24,9 +24,7 @@ function generateMarkdown(data) {
 
   ## Table Of Contents
   ${data.Table}
-  1.#Installation
-  2.#Opperate
-  3.#Contributors
+
 
   ## Installation
   ${data.Installation}
@@ -35,7 +33,7 @@ function generateMarkdown(data) {
   ${data.Opperate}
 
   ## Contributors
-  ${data.Contributors}
+  https://github.com/${data.Contributors}
 
 
 `;
